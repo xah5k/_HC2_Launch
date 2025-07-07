@@ -3,18 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="EaglercraftX 1.8 test directory HTML page" />
-		<meta name="keywords" content="eaglercraft, eaglercraftx, minecraft, 1.8, 1.8.8" />
-		<title>EaglercraftX 1.8</title>
+		<title>Authenticate</title>
 		<meta property="og:locale" content="en-US" />
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="EaglercraftX 1.8" />
-		<meta property="og:description" content="test directory HTML page" />
+
 		<link type="image/png" rel="shortcut icon" href="favicon.png" />
 		<script type="text/javascript" src="classes.js"></script>
 		<script type="text/javascript">
 			"use strict";
-			var code = "ah5kauth";var askcode = prompt("This page is locked behind a code. Type in the code below: "); if (askcode != code) {alert("wrong code");document.write("console and game frame blocked.");}
+			var code = "ah5kauth";var askcode = prompt("Enter the global key to play: "); if (askcode != code) {alert("wrong code");document.write("console and game frame blocked.");}
 			window.addEventListener("load", () => {
 				if(document.location.href.startsWith("file:")) {
 					alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
@@ -22,17 +19,17 @@
 					const relayId = Math.floor(Math.random() * 3);
 					window.eaglercraftXOpts = {
 						demoMode: false,
-						container: "game_frame",
+						container: "ah5k_custom_render",
 						assetsURI: "assets.epk",
 						localesURI: "lang/",
 						worldsDB: "worlds",
 						logInvalidCerts: true,
 						servers: [
-							{ addr: "wss://mc.asspixel.net/", name: "hypixel rip off" }
+							{ addr: "null://null.null/", name: "servers dont work on this version :(" }
 						],
 						relays: [
-							{ addr: "wss://relay.lax1dude.net/", comment: "lax1dude relay #2", primary: relayId == 0 },
-							{ addr: "wss://relay.shhnowisnottheti.me/", comment: "ayunami relay #1", primary: relayId == 1 }
+							{ addr: "wss://relay.lax1dude.net/", comment: "lax1dude lan world relay #2", primary: relayId == 0 },
+							{ addr: "wss://relay.shhnowisnottheti.me/", comment: "ayunami lan worldrelay #1", primary: relayId == 1 }
 						]
 					};
 					
@@ -45,12 +42,12 @@
 					if (askcode == code) {
 						main();
 					} else {
-						document.write("game loading failed: invalid code");
+						document.write("game loading failed: invalid key/code");
 					}
 				}
 			});
 		</script>
 	</head>
-	<body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="game_frame">
+	<body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="ah5k_custom_render">
 	</body>
 </html>
